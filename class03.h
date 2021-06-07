@@ -28,6 +28,10 @@ public:
     Demo(int n1);
     Demo(int n1, int n2);
     
+    ~Demo() {
+        cout << "Bye Bye~" << endl;
+    };
+
     void set_a(int n);
     void set_b(int n);
     int get_a();

@@ -33,40 +33,41 @@ void test01(){
 //實現計算器抽象類
 class AbstractCalculator{
 public:
-    virtual int getResult(){
+    virtual int getResult(int num1, int num2){
         return 0;
     }
-    
-    int m_Num1;
-    int m_Num2;
 };
 //加法計算器類
 class AddCalculator:public AbstractCalculator{
 public:
-    int getResult(){
-        return m_Num1+m_Num2;
+    int getResult(int num1, int num2){
+        cout << "AddCalculator ";
+        return num1 + num2;
     }
 };
 //減法計算器類
 class SubCalculator:public AbstractCalculator{
 public:
-    int getResult(){
-        return m_Num1-m_Num2;
+    int getResult(int num1, int num2){
+        cout << "SubCalculator ";
+        return num1 - num2;
     }
 };
 //乘法計算器類
 class MulCalculator:public AbstractCalculator{
 public:
-    int getResult(){
-        return m_Num1*m_Num2;
+    int getResult(int num1, int num2){
+        cout << "MulCalculator ";
+        return num1 * num2;
     }
 };
 
 //除法計算器類
 class ChuCalculator:public AbstractCalculator{
 public:
-    int getResult(){
-        return m_Num1/m_Num2;
+    int getResult(int num1, int num2){
+        cout << "ChuCalculator ";
+        return num1 / num2;
     }
 };
 
@@ -75,30 +76,22 @@ void test02(){
     //父類指標或引用指向子類物件
     //加法運算
     AbstractCalculator* abc = new AddCalculator;
-    abc->m_Num1 = 100;
-    abc->m_Num2 = 100;
-    cout<< abc->m_Num1 << "+" << abc->m_Num2 << "=" << abc->getResult() << endl;
+    cout << abc->getResult(100, 100) << endl;
     delete abc;//用完記得銷燬
     
     //減法運算
     abc = new SubCalculator;
-    abc->m_Num1 = 100;
-    abc->m_Num2 = 100;
-    cout<< abc->m_Num1 << "-" << abc->m_Num2 << "=" << abc->getResult() << endl;
+    cout << abc->getResult(100, 100) << endl;
     delete abc;//用完記得銷燬
     
     //乘法法運算
     abc = new MulCalculator;
-    abc->m_Num1 = 100;
-    abc->m_Num2 = 100;
-    cout<< abc->m_Num1 << "*" << abc->m_Num2 << "=" << abc->getResult() << endl;
+    cout << abc->getResult(100, 100) << endl;
     delete abc;//用完記得銷燬
     
     //整除運算
     abc = new ChuCalculator;
-    abc->m_Num1 = 100;
-    abc->m_Num2 = 100;
-    cout<< abc->m_Num1 << "/" <<abc->m_Num2 << "=" << abc->getResult() << endl;
+    cout << abc->getResult(100, 100) << endl;
     delete abc;//用完記得銷燬
 }
 
