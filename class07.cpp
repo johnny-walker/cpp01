@@ -28,7 +28,7 @@ public:
         PutSomething();
     }
 
-    ~AbstractDrinking()
+    virtual ~AbstractDrinking()
     {
         cout << "delete AbstractDrinking" << endl;
     }
@@ -94,13 +94,13 @@ void doWork(AbstractDrinking *abs)
 
 void test01()
 {
-    Coffee *coffee = new Coffee;
-    doWork(coffee);
-    delete coffee;
+    AbstractDrinking *abd = new Coffee;
+    doWork(abd);
+    delete abd;
 
-    Tea *tea = new Tea;
-    doWork(tea);
-    delete tea;
+    abd = new Tea;
+    doWork(abd);
+    delete abd;
 }
 
 int main()
